@@ -8,6 +8,10 @@ public class RequestException extends RuntimeException {
 
     private static final long serialVersionUID = 4900067270557008643L;
 
+    public RequestException() {
+        super();
+    }
+
     public RequestException(String message, Throwable cause,
                             boolean enableSuppression,
                             boolean writableStackTrace) {

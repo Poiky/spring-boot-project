@@ -31,6 +31,12 @@ public class AppExceptionHandler {
     }
 
     @ExceptionHandler
+    public ResultEntity sessionHandle(SessionException e) {
+        LOG.error(e.getMessage());
+        return ResultEntity.faild(ResultCode.SESSION_FAILD, e.getMessage());
+    }
+
+    @ExceptionHandler
     public ResultEntity unknownHandle(Exception e) {
         LOG.error(e.getMessage());
         return ResultEntity.faild(ResultCode.UNKNOW_FAILD, e.getMessage());

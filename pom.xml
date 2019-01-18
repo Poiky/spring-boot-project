@@ -6,6 +6,7 @@
 	<modules>
 		<module>mybatis-annotations</module>
 		<module>mybatis-configuration</module>
+		<module>session-sharing</module>
 		<module>swagger2</module>
 		<module>test</module>
     </modules>

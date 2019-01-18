@@ -17,6 +17,11 @@ public enum ResultCode {
     REQUEST_FAILD(1, "请求异常"),
 
     /**
+     *  Session失效
+     */
+    SESSION_FAILD(2, "SESSION失效"),
+
+    /**
      * 内部错误
      */
     INTERNAL_FAILD(-1, "内部异常"),

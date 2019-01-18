@@ -8,6 +8,10 @@ public class InternalException extends RuntimeException {
 
     private static final long serialVersionUID = 8357096485790269600L;
 
+    public InternalException() {
+        super();
+    }
+
     public InternalException(String message, Throwable cause,
                              boolean enableSuppression,
                              boolean writableStackTrace) {
