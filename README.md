@@ -1,4 +1,4 @@
-# spring-boot-project
+# Spring Boot Project
 
 ## MyBatis-Configuration
 
@@ -14,7 +14,25 @@
 
 ### 简介
 
-注解方式使用MyBatis，免去编写配置文件的步骤。
+注解方式使用MyBatis，免去编写配置文件。
+
+### 问题
+
+## Session共享
+
+### 简介
+
+**session**由服务器保存。在分布式应用场景，涉及**session**共享问题。
+
+### 问题
+
+## Slf4j-Logback
+
+### 简介
+
+**SLF4J**：**Simple Logging Facade for Java**，和commons-loging 类似，是对不同日志框架提供的一个门面封装。可以在部署的时候不修改任何配置即可接入一种日志实现方案。有两个额外特点：①能支持多个参数，并通过{}占位符进行替换，避免老写logger.isXXXEnabled这种无奈的判断，带来性能提升见；②OSGI机制更好兼容支持。[[2]](https://www.jianshu.com/p/696444e1a352)
+
+**Logback**：Logback是由log4j创始人设计的又一个开源日志组件。logback当前分成三个模块：logback-core,logback- classic和logback-access。logback-core是其它两个模块的基础模块。logback-classic是log4j的一个 改良版本。此外logback-classic完整实现SLF4J API使你可以很方便地更换成其它日志系统如log4j或JDK14 Logging。logback-access访问模块与Servlet容器集成提供通过Http来访问日志的功能。[[3]](https://baike.baidu.com/item/logback)
 
 ### 问题
 
@@ -38,11 +56,9 @@
 
 \[1\] [MyBatis官方文档](http://www.mybatis.org/mybatis-3/zh/index.html)
 
+\[2\] [slf4j+logback的配置及使用](https://www.jianshu.com/p/696444e1a352)
 
-
-## 
-
-## 
+\[3\] [LogBack百度百科](https://baike.baidu.com/item/logback)
 
 
 
