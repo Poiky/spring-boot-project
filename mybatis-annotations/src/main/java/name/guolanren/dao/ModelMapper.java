@@ -6,6 +6,10 @@ import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
+/**
+ * @autoro guolanren
+ * @date 2019-01-18
+ */
 public interface ModelMapper {
     @InsertProvider(type = ModelSqlProvider.class, method = "insert")
     @Options(useGeneratedKeys = true, keyProperty = "id", keyColumn = "id")

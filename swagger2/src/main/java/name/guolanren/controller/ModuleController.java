@@ -8,7 +8,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * @author 郭耀展
+ * @author guolanren
  * @create 2019-01-17
  */
 @RestController
