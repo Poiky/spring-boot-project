@@ -19,19 +19,26 @@ import javax.sql.DataSource;
 @MapperScan(basePackages="name.guolanren.dao.source2", sqlSessionFactoryRef="mybatisSource2SqlSessionFactory")
 public class MyBatisMultiDataSource2Configuration {
 
-    @Bean(name="mybatisSource2")
-    @ConfigurationProperties(prefix="spring.datasource.source2")
+    @Bean(name = "mybatisSource2")
+    @ConfigurationProperties(prefix = "spring.datasource.source2")
     public DataSource source() {
         return DataSourceBuilder.create().build();
     }
 
-    @Bean(name="mybatisSource2SqlSessionFactory")
-    public SqlSessionFactory sqlSessionFactory(@Qualifier("mybatisSource2") DataSource dataSource) throws Exception {
+    @Bean(name = "mybatisSource2SqlSessionFactory")
+    public SqlSessionFactory sqlSessionFactory(
+            @Qualifier("mybatisSource2SqlSessionFactoryBean") SqlSessionFactoryBean sqlSessionFactoryBean) throws Exception {
+        return sqlSessionFactoryBean.getObject();
+    }
+
+    @Bean("mybatisSource2SqlSessionFactoryBean")
+    @ConfigurationProperties(prefix = "mybatis")
+    public SqlSessionFactoryBean sqlSessionFactoryBean(@Qualifier("mybatisSource2") DataSource dataSource) {
         SqlSessionFactoryBean sessionFactoryBean = new SqlSessionFactoryBean();
         sessionFactoryBean.setDataSource(dataSource);
 //        sessionFactoryBean.setMapperLocations(new PathMatchingResourcePatternResolver()
-//                .getResources("classpath*:mapper/source1/*.xml"));
-        return sessionFactoryBean.getObject();
+//                .getResources("classpath*:mapper/source2/*.xml"));
+        return sessionFactoryBean;
     }
 
 }

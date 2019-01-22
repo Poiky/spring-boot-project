@@ -4,13 +4,13 @@
 
 ### 版本
 
-**1.0.0**：创建模块
+**1.0.0:** 创建模块 -- **2019.01.22**
 
 ### 问题
 
 1. **Mybatis配置失效**
 
-多数据源以及动态数据源都需要自定义**SqlSessionFactory**，如此一来就绕过**MybatisAutoConfiguration**。
+多数据源以及动态数据源都需要自定义**SqlSessionFactory**。如此一来就绕过**MybatisAutoConfiguration**，导致**mybatis.**前缀的相关配置都失效。
 
 ```java
 @Configuration
@@ -22,6 +22,24 @@ public class MybatisAutoConfiguration {
     ...
     private final MybatisProperties properties;
     ...
+    @Bean
+    @ConditionalOnMissingBean
+    public SqlSessionFactory sqlSessionFactory(DataSource dataSource) throws Exception {
+        SqlSessionFactoryBean factory = new SqlSessionFactoryBean();
+        factory.setDataSource(dataSource);
+        ...
+        org.apache.ibatis.session.Configuration configuration = this.properties.getConfiguration();
+        if (configuration == null && !StringUtils.hasText(this.properties.getConfigLocation())) {
+            configuration = new org.apache.ibatis.session.Configuration();
+        }
+        ...
+        factory.setConfiguration(configuration);
+        if (this.properties.getConfigurationProperties() != null) {
+            factory.setConfigurationProperties(this.properties.getConfigurationProperties());
+        }
+        ...
+        return factory.getObject();
+    }
 }
 ```
 
@@ -44,7 +62,7 @@ public class MybatisProperties {
 }
 ```
 
-**mybatis.**前缀的相关配置都失效。所以，需要在生成**SqlSessionFactory**前先将配置设置在**SqlSessionFactoryBean**中。于是**SqlSessionFactory**的注册分两段：
+所以，需要在生成**SqlSessionFactory**前先将配置设置在**SqlSessionFactoryBean**中。于是**SqlSessionFactory**的注册分两段：
 
 ```java
     @Primary
@@ -69,15 +87,9 @@ public class MybatisProperties {
 
 ### 版本
 
-1.0.0：创建模块
+**1.0.0:** 创建模块 -- **2019.01.21**
 
-### 问题
-
-## MyBatis-Configuration
-
-### 版本
-
-1.0.0：创建模块
+**1.0.1:** **SqlSessionFactory**两段注册，支持**mybatis.**前缀配置 -- **2019.01.22**
 
 ### 问题
 
@@ -85,7 +97,15 @@ public class MybatisProperties {
 
 ### 版本
 
-1.0.0：创建模块
+**1.0.0:** 创建模块 -- **2019.01.18**
+
+### 问题
+
+## MyBatis-Configuration
+
+### 版本
+
+**1.0.0:** 创建模块 -- **2019.01.18**
 
 ### 问题
 
@@ -93,7 +113,7 @@ public class MybatisProperties {
 
 ### 版本
 
-1.0.0：创建模块
+**1.0.0:** 创建模块 -- **2019.01.18**
 
 ### 问题
 
@@ -101,7 +121,7 @@ public class MybatisProperties {
 
 ### 版本
 
-1.0.0：创建模块
+**1.0.0:** 创建模块 -- **2019.01.19**
 
 ### 问题
 
@@ -127,7 +147,7 @@ public class MybatisProperties {
 
 ### 版本
 
-**1.0.0**：创建模块
+**1.0.0:** 创建模块 -- **2019.01.17**
 
 ### 问题
 
@@ -135,7 +155,7 @@ public class MybatisProperties {
 
 ### 版本
 
-**1.0.0**：创建模块
+**1.0.0:** 创建模块 -- **2019.01.17**
 
 ### 问题
 

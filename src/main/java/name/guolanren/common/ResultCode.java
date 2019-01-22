@@ -7,9 +7,9 @@ package name.guolanren.common;
 public enum ResultCode {
 
     /**
-     * 返回成功
+     * 响应成功
      */
-    SUCCESS(0, "返回成功"),
+    SUCCESS(0, "响应成功"),
 
     /**
      * 请求异常
@@ -22,12 +22,12 @@ public enum ResultCode {
     SESSION_FAILD(2, "SESSION失效"),
 
     /**
-     * 内部错误
+     * 内部异常
      */
     INTERNAL_FAILD(-1, "内部异常"),
 
     /**
-     * 未知错误
+     * 未知异常
      */
     UNKNOW_FAILD(100, "未知异常");
 

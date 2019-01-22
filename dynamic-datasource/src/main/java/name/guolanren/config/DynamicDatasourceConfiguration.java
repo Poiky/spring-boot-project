@@ -42,13 +42,13 @@ public class DynamicDatasourceConfiguration {
     }
 
     @Bean("source1")
-    @ConfigurationProperties(prefix="spring.datasource.source1")
+    @ConfigurationProperties(prefix = "spring.datasource.source1")
     public DataSource source1() {
         return DataSourceBuilder.create().build();
     }
 
     @Bean("source2")
-    @ConfigurationProperties(prefix="spring.datasource.source2")
+    @ConfigurationProperties(prefix = "spring.datasource.source2")
     public DataSource source2() {
         return DataSourceBuilder.create().build();
     }
