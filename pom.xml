@@ -4,6 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<packaging>pom</packaging>
 	<modules>
+		<module>dynamic-datasource</module>
 		<module>multi-datasource</module>
 		<module>mybatis-annotations</module>
 		<module>mybatis-configuration</module>

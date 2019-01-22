@@ -1,7 +1,7 @@
 package name.guolanren.common;
 
 /**
- * @author 郭耀展
+ * @author guolanren
  * @create 2019-01-17
  */
 public enum ResultCode {
