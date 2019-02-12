@@ -1,6 +1,8 @@
 # Spring Boot Project
 
-## Dynamic-Datasource
+------
+
+## Dynamic Datasource(动态数据源)
 
 ### 版本
 
@@ -83,7 +85,9 @@ public class MybatisProperties {
     }
 ```
 
-## Multi-Datasource
+------
+
+## Multi Datasource(多数据源)
 
 ### 版本
 
@@ -93,7 +97,9 @@ public class MybatisProperties {
 
 ### 问题
 
-## MyBatis-Annotations
+------
+
+## MyBatis Annotations(MyBatis注解)
 
 ### 版本
 
@@ -101,7 +107,9 @@ public class MybatisProperties {
 
 ### 问题
 
-## MyBatis-Configuration
+------
+
+## MyBatis Configuration(MyBatis配置文件)
 
 ### 版本
 
@@ -109,7 +117,9 @@ public class MybatisProperties {
 
 ### 问题
 
-## Session共享
+------
+
+## Session Sharing(会话共享)
 
 ### 版本
 
@@ -117,7 +127,9 @@ public class MybatisProperties {
 
 ### 问题
 
-## Slf4j-Logback
+------
+
+## Slf4j Logback(日志框架)
 
 ### 版本
 
@@ -143,13 +155,152 @@ public class MybatisProperties {
        **%i** 索引(从数字0开始递增)。
        **%n** 平台换行符。
 
-## Swagger 2
+------
+
+## Spring Cloud: Eureka Server(服务注册/发现)
+
+### 版本
+
+**1.0.0:** 创建模块 -- **2019.02.12**
+
+### 问题
+
+1. **配置**
+
+```properties
+# 实例主机名
+eureka.instance.hostname = localhost
+
+# 自我保护模式(默认true)
+eureka.server.enable-self-preservation = false
+# 注册表清理实例的间隔时间(默认60000ms)
+eureka.server.eviction-interval-timer-in-ms = 60
+
+# 高可用eureka服务器地址，多个使用逗号分隔
+eureka.client.service-url.defaultZone = http://host2:8761/eureka,http://host3:8761/eureka
+# 是否注册到eureka服务器(默认true)
+eureka.client.register-with-eureka = false
+# 是否从eureka服务器抓取注册表(默认true)
+eureka.client.fetch-registry = false
+```
+
+------
+
+## Spring Cloud: Eureka Client(Eureka客户端)
+
+### 版本
+
+**1.0.0:** 创建模块 -- **2019.02.12**
+
+### 问题
+
+1. **Actuator配置**
+
+   ```properties
+   # 不对外暴露的endpoints
+   management.endpoints.web.exposure.exclude = health,info
+   # 对外暴露的endpoints(默认health,info)
+   management.endpoints.web.exposure.include = *
+   ```
+
+2. **配置**
+
+   ```properties
+   # 向Eureka服务器发送心跳时间间隔(默认30s)
+   eureka.instance.lease-renewal-interval-in-seconds = 30
+   # Eureka服务器接收不到实例心跳，将会从注册表移除实例的期限时间(默认90s)
+   eureka.instance.lease-expiration-duration-in-seconds = 90
+   
+   # 服务状态更新时间(默认30s)
+   eureka.client.instance-info-replication-interval-seconds = 30
+   # 客户端抓取注册表的间隔时间(默认30s)
+   eureka.client.registry-fetch-interval-seconds = 30
+   
+   ```
+
+3. **@EnableDiscoveryClient与@EnableEurekaClient区别**
+
+   新版@EnableEurekaClient:
+
+   ```java
+   /**
+    * Convenience annotation for clients to enable Eureka discovery configuration
+    * (specifically). Use this (optionally) in case you want discovery and know for sure that
+    * it is Eureka you want. All it does is turn on discovery and let the autoconfiguration
+    * find the eureka classes if they are available (i.e. you need Eureka on the classpath as
+    * well).
+    *
+    * @author Dave Syer
+    * @author Spencer Gibb
+    */
+   @Target(ElementType.TYPE)
+   @Retention(RetentionPolicy.RUNTIME)
+   @Documented
+   @Inherited
+   public @interface EnableEurekaClient {
+   
+   }
+   ```
+
+   旧版@EnableEurekaClient:
+
+   ```java
+   /**
+    * Convenience annotation for clients to enable Eureka discovery configuration
+    * (specifically). Use this (optionally) in case you want discovery and know for sure that
+    * it is Eureka you want. All it does is turn on discovery and let the autoconfiguration
+    * find the eureka classes if they are available (i.e. you need Eureka on the classpath as
+    * well).
+    *
+    * @author Dave Syer
+    * @author Spencer Gibb
+    */
+   @Target(ElementType.TYPE)
+   @Retention(RetentionPolicy.RUNTIME)
+   @Documented
+   @Inherited
+   @EnableDiscoveryClient
+   public @interface EnableEurekaClient {
+   
+   }
+   ```
+
+   @EnableDiscoveryClient
+
+   ```java
+   /**
+    * Annotation to enable a DiscoveryClient implementation.
+    * @author Spencer Gibb
+    */
+   @Target(ElementType.TYPE)
+   @Retention(RetentionPolicy.RUNTIME)
+   @Documented
+   @Inherited
+   @Import(EnableDiscoveryClientImportSelector.class)
+   public @interface EnableDiscoveryClient {
+   
+      /**
+       * If true, the ServiceRegistry will automatically register the local server.
+       */
+      boolean autoRegister() default true;
+   }
+   ```
+
+   从源码中可看出，旧版@EnableEurekaClient包含@EnableDiscoveryClient，新版@EnableEurekaClient移除@EnableDiscoveryClient。但描述仍然没有改变，依旧是为了方便使用Eureka客户端被发现。
+
+   事实上，spring-cloud中的discovery service有多种实现（eureka、consul、zookeeper等等）。而@EnableEurekaClient基于spring-cloud-netflix，@EnableDiscoveryClient基于spring-cloud-commons。就是如果选用的注册中心是eureka，那么就推荐@EnableEurekaClient，如果是其他的注册中心，那么推荐使用@EnableDiscoveryClient。[[1]](https://www.jianshu.com/p/f6db3117864f)
+
+------
+
+## Swagger 2(Api文档构建)
 
 ### 版本
 
 **1.0.0:** 创建模块 -- **2019.01.17**
 
 ### 问题
+
+------
 
 ## 异常统一处理
 
@@ -159,5 +310,9 @@ public class MybatisProperties {
 
 ### 问题
 
+------
 
+## 参考
+
+[1]: https://www.jianshu.com/p/f6db3117864f	"@EnableDiscoveryClient与@EnableEurekaCient区别"
 

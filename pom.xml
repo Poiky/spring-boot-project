@@ -12,7 +12,8 @@
 		<module>slf4j-logback</module>
 		<module>swagger2</module>
 		<module>test</module>
-    </modules>
+		<module>spring-cloud</module>
+	</modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
