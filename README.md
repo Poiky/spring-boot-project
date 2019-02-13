@@ -167,22 +167,22 @@ public class MybatisProperties {
 
 1. **配置**
 
-```properties
-# 实例主机名
-eureka.instance.hostname = localhost
-
-# 自我保护模式(默认true)
-eureka.server.enable-self-preservation = false
-# 注册表清理实例的间隔时间(默认60000ms)
-eureka.server.eviction-interval-timer-in-ms = 60
-
-# 高可用eureka服务器地址，多个使用逗号分隔
-eureka.client.service-url.defaultZone = http://host2:8761/eureka,http://host3:8761/eureka
-# 是否注册到eureka服务器(默认true)
-eureka.client.register-with-eureka = false
-# 是否从eureka服务器抓取注册表(默认true)
-eureka.client.fetch-registry = false
-```
+   ```properties
+   # 实例主机名
+   eureka.instance.hostname = localhost
+   
+   # 自我保护模式(默认true)
+   eureka.server.enable-self-preservation = false
+   # 注册表清理实例的间隔时间(默认60000ms)
+   eureka.server.eviction-interval-timer-in-ms = 60
+   
+   # 高可用eureka服务器地址，多个使用逗号分隔
+   eureka.client.service-url.defaultZone = http://host2:8761/eureka,http://host3:8761/eureka
+   # 是否注册到eureka服务器(默认true)
+   eureka.client.register-with-eureka = false
+   # 是否从eureka服务器抓取注册表(默认true)
+   eureka.client.fetch-registry = false
+   ```
 
 ------
 
@@ -289,6 +289,49 @@ eureka.client.fetch-registry = false
    从源码中可看出，旧版@EnableEurekaClient包含@EnableDiscoveryClient，新版@EnableEurekaClient移除@EnableDiscoveryClient。但描述仍然没有改变，依旧是为了方便使用Eureka客户端被发现。
 
    事实上，spring-cloud中的discovery service有多种实现（eureka、consul、zookeeper等等）。而@EnableEurekaClient基于spring-cloud-netflix，@EnableDiscoveryClient基于spring-cloud-commons。就是如果选用的注册中心是eureka，那么就推荐@EnableEurekaClient，如果是其他的注册中心，那么推荐使用@EnableDiscoveryClient。[[1]](https://www.jianshu.com/p/f6db3117864f)
+
+------
+
+## Spring Cloud: Ribbon Eureka(Ribbon Eureka环境)
+
+### 版本
+
+**1.0.0:** 创建模块 -- **2019.02.13**
+
+### **问题**
+
+1. **配置**
+
+   ```properties
+   # <client>.<nameSpace>.<property> = <value>
+   # 自定义负载均衡器Rule
+   service-provider.ribbon.NFLoadBalancerRuleClassName = name.guolanren.component.MyRule
+   # 自定义负载均衡器Ping
+   service-provider.ribbon.NFLoadBalancerPingClassName = name.guolanren.component.MyPing
+   ```
+
+
+------
+
+## Spring Cloud: Ribbon Single(Ribbon 单独使用)
+
+### 版本
+
+**1.0.0:** 创建模块 -- **2019.02.13**
+
+### 问题
+
+1. **配置**
+
+   ```properties
+   # <client>.<nameSpace>.<property> = <value>
+   # 服务提供者服务器列表
+   service-provider.ribbon.listOfServers = http://host1:8080,http://host2:8080
+   # 自定义负载均衡器Rule
+   service-provider.ribbon.NFLoadBalancerRuleClassName = name.guolanren.component.MyRule
+   # 自定义负载均衡器Ping
+   service-provider.ribbon.NFLoadBalancerPingClassName = name.guolanren.component.MyPing
+   ```
 
 ------
 
