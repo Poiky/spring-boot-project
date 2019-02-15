@@ -292,6 +292,36 @@ public class MybatisProperties {
 
 ------
 
+## Spring Cloud: Feign Eureka(Feign Eureka环境)
+
+### 版本
+
+**1.0.0:** 创建模块 -- **2019.02.14**
+
+### 问题
+
+------
+
+## Spring Cloud: Feign Single(Feign单独使用)
+
+### 版本
+
+**1.0.0:** 创建模块 -- **2019.02.14**
+
+### 问题
+
+1. **LoadBalance**
+
+   **@FeignClient**的**value/name**指定为服务名。
+
+   在**Eureka**环境中可通过注册表映射对应主机列表。
+
+   非**Eureka**环境可通过**spring-cloud-starter-netflix-ribbon**配置的**service-provider.ribbon.listOfServers = http://host1:8080,http://host2:8080**映射主机列表。
+
+   既非**Eureka**环境也不依赖**spring-cloud-starter-netflix-ribbon**的环境下，通过**url**属性仅可指定提供服务的单节点。
+
+------
+
 ## Spring Cloud: Ribbon Eureka(Ribbon Eureka环境)
 
 ### 版本
@@ -309,7 +339,6 @@ public class MybatisProperties {
    # 自定义负载均衡器Ping
    service-provider.ribbon.NFLoadBalancerPingClassName = name.guolanren.component.MyPing
    ```
-
 
 ------
 
@@ -357,5 +386,5 @@ public class MybatisProperties {
 
 ## 参考
 
-[1]: https://www.jianshu.com/p/f6db3117864f	"@EnableDiscoveryClient与@EnableEurekaCient区别"
+\[1\]  [@EnableDiscoveryClient与@EnableEurekaCient区别](https://www.jianshu.com/p/f6db3117864f)
 

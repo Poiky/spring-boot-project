@@ -10,12 +10,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>spring-cloud</artifactId>
-    <packaging>pom</packaging>
     <version>1.0.0</version>
 
     <modules>
         <module>eureka-server</module>
         <module>eureka-client</module>
+        <module>feign-eureka</module>
+        <module>feign-single</module>
         <module>ribbon-eureka</module>
         <module>ribbon-single</module>
     </modules>

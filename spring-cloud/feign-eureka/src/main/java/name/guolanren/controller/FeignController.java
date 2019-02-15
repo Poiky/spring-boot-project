@@ -1,24 +1,23 @@
 package name.guolanren.controller;
 
-import name.guolanren.common.ResultEntity;
+import name.guolanren.client.ProviderClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
 
 /**
  * @autoro guolanren
- * @date 2019-02-13
+ * @date 2019-02-14
  */
 @RestController
-public class RibbonEurekaController {
+public class FeignController {
 
     @Autowired
-    private RestTemplate restTemplate;
+    private ProviderClient providerClient;
 
     @GetMapping("/hello")
     public Object hello() {
-        return restTemplate.getForObject("http://service-provider/hello", String.class);
+        return providerClient.hello();
     }
 
 }
