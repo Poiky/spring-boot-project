@@ -7,7 +7,7 @@ import com.netflix.loadbalancer.Server;
 import java.util.List;
 
 /**
- * @autoro guolanren
+ * @author guolanren
  * @date 2019-02-13
  */
 public class MyRule implements IRule {

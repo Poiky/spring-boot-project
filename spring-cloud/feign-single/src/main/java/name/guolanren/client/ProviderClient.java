@@ -4,7 +4,7 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 
 /**
- * @autoro guolanren
+ * @author guolanren
  * @date 2019-02-15
  */
 @FeignClient(value = "service-provider", url = "http://localhost:8081")

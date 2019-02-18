@@ -7,7 +7,7 @@ import org.apache.ibatis.jdbc.SQL;
 import java.util.Objects;
 
 /**
- * @autoro guolanren
+ * @author guolanren
  * @date 2019-01-18
  */
 public class ModelSqlProvider {

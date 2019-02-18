@@ -5,7 +5,7 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 /**
- * @autoro guolanren
+ * @author guolanren
  * @date 2019-01-21
  */
 public interface MyBatisSource1ModelMapper {

@@ -1,13 +1,12 @@
 package name.guolanren.controller;
 
-import name.guolanren.common.ResultEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 /**
- * @autoro guolanren
+ * @author guolanren
  * @date 2019-02-13
  */
 @RestController

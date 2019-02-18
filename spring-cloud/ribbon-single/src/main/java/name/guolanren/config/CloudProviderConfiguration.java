@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
 
 /**
- * @autoro guolanren
+ * @author guolanren
  * @date 2019-02-13
  */
 @Configuration

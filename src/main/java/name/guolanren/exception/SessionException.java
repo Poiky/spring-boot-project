@@ -1,7 +1,7 @@
 package name.guolanren.exception;
 
 /**
- * @autoro guolanren
+ * @author guolanren
  * @date 2019-01-18
  */
 public class SessionException extends RuntimeException {

@@ -1,7 +1,7 @@
 package name.guolanren.model;
 
 /**
- * @autoro guolanren
+ * @author guolanren
  * @date 2019-01-21
  */
 public class Model {

@@ -3,7 +3,7 @@ package name.guolanren.model.source1;
 import javax.persistence.*;
 
 /**
- * @autoro guolanren
+ * @author guolanren
  * @date 2019-01-21
  */
 @Entity

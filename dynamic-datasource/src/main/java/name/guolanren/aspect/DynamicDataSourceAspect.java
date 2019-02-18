@@ -7,7 +7,7 @@ import org.aspectj.lang.annotation.Before;
 import org.springframework.stereotype.Component;
 
 /**
- * @autoro guolanren
+ * @author guolanren
  * @date 2019-01-22
  */
 @Aspect

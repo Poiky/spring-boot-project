@@ -2,7 +2,7 @@ package name.guolanren.model;
 
 /**
  * @author 郭耀展
- * @create 2019-01-17
+ * @date 2019-01-17
  */
 public class Model {
     private Integer id;

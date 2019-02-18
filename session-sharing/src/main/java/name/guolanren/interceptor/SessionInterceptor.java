@@ -10,7 +10,7 @@ import javax.servlet.http.HttpSession;
 import java.util.Objects;
 
 /**
- * @autoro guolanren
+ * @author guolanren
  * @date 2019-01-18
  */
 @Component

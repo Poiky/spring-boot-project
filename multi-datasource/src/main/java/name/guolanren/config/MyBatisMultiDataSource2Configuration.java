@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
 import javax.sql.DataSource;
 
 /**
- * @autoro guolanren
+ * @author guolanren
  * @date 2019-01-21
  */
 @Configuration

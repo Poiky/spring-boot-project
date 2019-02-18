@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 /**
- * @autoro guolanren
+ * @author guolanren
  * @date 2019-01-21
  */
 @Repository

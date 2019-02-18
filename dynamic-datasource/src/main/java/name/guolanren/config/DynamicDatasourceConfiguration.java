@@ -20,7 +20,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @autoro guolanren
+ * @author guolanren
  * @date 2019-01-22
  */
 @Configuration

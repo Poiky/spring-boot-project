@@ -2,7 +2,7 @@ package name.guolanren.exception;
 
 /**
  * @author guolanren
- * @create 2019-01-17
+ * @date 2019-01-17
  */
 public class InternalException extends RuntimeException {
 

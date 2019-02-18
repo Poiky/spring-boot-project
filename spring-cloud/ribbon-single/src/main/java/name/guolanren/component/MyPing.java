@@ -4,7 +4,7 @@ import com.netflix.loadbalancer.IPing;
 import com.netflix.loadbalancer.Server;
 
 /**
- * @autoro guolanren
+ * @author guolanren
  * @date 2019-02-13
  */
 public class MyPing implements IPing {

@@ -3,7 +3,7 @@ package name.guolanren.annotation;
 import java.lang.annotation.*;
 
 /**
- * @autoro guolanren
+ * @author guolanren
  * @date 2019-01-22
  */
 @Target({ElementType.TYPE, ElementType.METHOD})

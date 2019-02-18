@@ -8,7 +8,7 @@ import org.apache.ibatis.annotations.*;
 import java.util.List;
 
 /**
- * @autoro guolanren
+ * @author guolanren
  * @date 2019-01-18
  */
 public interface ModelMapper {

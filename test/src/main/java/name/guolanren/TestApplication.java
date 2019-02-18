@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * @author guolanren
- * @create 2019-01-17
+ * @date 2019-01-17
  */
 @SpringBootApplication
 public class TestApplication {

@@ -3,7 +3,7 @@ package name.guolanren.config;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * @autoro guolanren
+ * @author guolanren
  * @date 2019-02-14
  */
 @Configuration

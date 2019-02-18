@@ -5,7 +5,7 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 
 /**
- * @autoro guolanren
+ * @author guolanren
  * @date 2019-02-14
  */
 @FeignClient(value = "service-provider", configuration = FeignConfiguration.class)

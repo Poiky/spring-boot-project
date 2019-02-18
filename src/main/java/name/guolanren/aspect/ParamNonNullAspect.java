@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 import java.util.Objects;
 
 /**
- * @autoro guolanren
+ * @author guolanren
  * @date 2019-01-22
  */
 @Aspect
