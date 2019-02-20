@@ -10,6 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>spring-cloud</artifactId>
+    <packaging>pom</packaging>
     <version>1.0.0</version>
 
     <modules>
@@ -17,8 +18,11 @@
         <module>eureka-client</module>
         <module>feign-eureka</module>
         <module>feign-single</module>
+        <module>hystrix-eureka</module>
         <module>ribbon-eureka</module>
         <module>ribbon-single</module>
+        <module>feign-hystrix</module>
+        <module>hystirx-dashboard</module>
     </modules>
 
 </project>
